@@ -1,11 +1,32 @@
 package com.contabancaria.contabancaria.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_conta")
 public class Conta {
 
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	 @Column(name = "NUMERO_DA_CONTA", nullable = false)
 	private Integer numero;
+	
+	 @Column(name = "AGENCIA", nullable = false)
 	private Integer agencia;
+	 
+	 @Column(name = "TIPO_DA_CONTA", nullable = false)
 	private Integer tipo;
+	 
+	 @Column(name = "SALDO", nullable = false)
 	private Float saldo;
+	 
+	 @ManyToOne
 	private Cliente cliente;
 
 	public Conta(int numero, int agencia, int tipo, String titular, float saldo) {

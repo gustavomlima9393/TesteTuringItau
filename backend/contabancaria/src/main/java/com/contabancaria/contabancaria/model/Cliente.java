@@ -2,12 +2,40 @@ package com.contabancaria.contabancaria.model;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_cliente")
 public class Cliente {
 	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID", nullable = false)
+    private Long id;
+	
+	@Column(name = "NOME", length = 50, nullable = false)
 	private String nome;
-	private Long cpf;
+	
+	@Column(name = "CPF", nullable = false)
+	private String cpf;
+	
+	@Column(name = "DATA_DE_NASCIMENTO", nullable = false)
 	private Date dataNascimento;
+	
+	@Column(name = "SENHA", nullable = false)
 	private String senha;
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 	public String getNome() {
 		return nome;
@@ -15,10 +43,10 @@ public class Cliente {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Long getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
-	public void setCpf(Long cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	public Date getDataNascimento() {
@@ -32,6 +60,5 @@ public class Cliente {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-	
+	}	
 }
