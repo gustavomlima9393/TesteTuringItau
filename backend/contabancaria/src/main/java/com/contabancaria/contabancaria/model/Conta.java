@@ -2,17 +2,16 @@ package com.contabancaria.contabancaria.model;
 
 public class Conta {
 
-	private int numero;
-	private int agencia;
-	private int tipo;
-	private String titular;
-	private float saldo;
+	private Integer numero;
+	private Integer agencia;
+	private Integer tipo;
+	private Float saldo;
+	private Cliente cliente;
 
 	public Conta(int numero, int agencia, int tipo, String titular, float saldo) {
 		this.numero = numero;
 		this.agencia = agencia;
 		this.tipo = tipo;
-		this.titular = titular;
 		this.saldo = saldo;
 	}
 
@@ -40,14 +39,6 @@ public class Conta {
 		this.tipo = tipo;
 	}
 
-	public String getTitular() {
-		return titular;
-	}
-
-	public void setTitular(String titular) {
-		this.titular = titular;
-	}
-
 	public float getSaldo() {
 		return saldo;
 	}
@@ -56,21 +47,12 @@ public class Conta {
 		this.saldo = saldo;
 	}
 
-	public boolean transferir(float valor) { 
-		
-		if(this.getSaldo() < valor) {
-			System.out.println("\n Saldo Insuficiente!");
-			return false;
-		}
-			
-		this.setSaldo(this.getSaldo() - valor);
-		return true;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void depositar(float valor) {
-
-		this.setSaldo(this.getSaldo() + valor);
-
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
-	
+
 }
