@@ -29,7 +29,7 @@ public class Conta {
 	 @ManyToOne
 	private Cliente cliente;
 
-	public Conta(int numero, int agencia, int tipo, String titular, float saldo) {
+	public Conta(Integer numero, Integer agencia, Integer tipo, String titular, Float saldo) {
 		this.numero = numero;
 		this.agencia = agencia;
 		this.tipo = tipo;
@@ -40,7 +40,7 @@ public class Conta {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
 
@@ -48,7 +48,7 @@ public class Conta {
 		return agencia;
 	}
 
-	public void setAgencia(int agencia) {
+	public void setAgencia(Integer agencia) {
 		this.agencia = agencia;
 	}
 
@@ -56,7 +56,7 @@ public class Conta {
 		return tipo;
 	}
 
-	public void setTipo(int tipo) {
+	public void setTipo(Integer tipo) {
 		this.tipo = tipo;
 	}
 
@@ -64,7 +64,7 @@ public class Conta {
 		return saldo;
 	}
 
-	public void setSaldo(float saldo) {
+	public void setSaldo(Float saldo) {
 		this.saldo = saldo;
 	}
 
