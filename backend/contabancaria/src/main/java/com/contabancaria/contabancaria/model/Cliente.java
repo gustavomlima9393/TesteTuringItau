@@ -1,12 +1,13 @@
 package com.contabancaria.contabancaria.model;
 
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "tb_cliente")
@@ -16,13 +17,14 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
-	@Column(name = "NOME", length = 50, nullable = false)
+	@NotNull(message = "O Atributo Nome é Obrigatório!")
 	private String nome;
 	
-	@Column(name = "CPF", nullable = false)
+	@NotNull(message = "O Atributo CPF é Obrigatório!")
 	private String cpf;
 	
-	@Column(name = "SENHA", nullable = false)
+	@NotNull(message = "O Atributo Senha é Obrigatório!")
+	@Size(min = 8, max = 8, message = "A Senha deve ter 8 caracteres")
 	private String senha;
 	
 	public Long getId() {

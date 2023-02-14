@@ -1,19 +1,18 @@
 package com.contabancaria.contabancaria.repository;
 
-/* public class ContaRepository {
+import java.util.List;
+import java.util.Optional;
 
-		// CRUD da Conta
-		public void procurarPorNumero(int numero);
-		public void listarTodas();
-		public void cadastrar(Conta conta);
-		public void atualizar(Conta conta);
-		public void deletar(int numero);
-		
-		// Métodos Bancários
-		public void depositar(int numero, float valor);
-		public void transferirPix(int numeroOrigem, int numeroDestino, float valor);
-		public void transferirTed(int numeroOrigem, int numeroDestino, float valor);
-		public void transferirDoc(int numeroOrigem, int numeroDestino, float valor);
-		
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.contabancaria.contabancaria.model.Conta;
+
+@Repository
+public interface ContaRepository extends JpaRepository<Conta, Long> {
+
+	public List<Conta> findAllByDescricaoContainingIgnoreCase(@Param("Número da conta") Integer numero);
+	public Optional<Conta> findById(Integer tipo);
+
 }
-*/
