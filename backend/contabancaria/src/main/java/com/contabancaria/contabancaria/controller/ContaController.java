@@ -20,7 +20,7 @@ import com.contabancaria.contabancaria.repository.ContaRepository;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/conta")
+@RequestMapping("/contas")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ContaController {
 
@@ -48,19 +48,19 @@ public class ContaController {
 	public ResponseEntity<List<Conta>> getByAgencia(@PathVariable Integer agencia) {
 		return ResponseEntity.ok(contaRepository.findAllByDescricaoContainingIgnoreCase(agencia));
 	}
-	*/
+	
 	@GetMapping("/tipo/{tipo}")
-	public ResponseEntity<Conta> getById(@PathVariable Integer tipo){
+	public ResponseEntity<Conta> getByCpf(@PathVariable Integer tipo){
 		return contaRepository.findById(tipo).map(resposta -> ResponseEntity.ok(resposta))
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
-	
-	@PostMapping
+	*/
+	@PostMapping("/cadastrar")
 	public ResponseEntity<Conta> post(@Valid @RequestBody Conta tipo) {
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(contaRepository.save(tipo));
 	}
-
+	/*
 	@PutMapping
 	public ResponseEntity<Conta> put(@Valid @RequestBody Conta conta) {
 		return contaRepository.findById(conta.getNumero())
@@ -68,4 +68,5 @@ public class ContaController {
 						.body(contaRepository.save(conta)))
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
+	*/
 }

@@ -40,6 +40,7 @@ public class BasicSecurityConfig {
             .authorizeHttpRequests((auth) -> auth            		
                 .requestMatchers(new AntPathRequestMatcher("/h2-console/**")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/clientes/cadastrar")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/contas/cadastrar")).permitAll()
                 .requestMatchers(HttpMethod.OPTIONS).permitAll()
                 .anyRequest().authenticated())
             .httpBasic();
