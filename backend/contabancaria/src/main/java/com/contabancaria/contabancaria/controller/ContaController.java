@@ -38,7 +38,7 @@ public class ContaController {
 				.map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
-
+/*
 	@GetMapping("/numero/{numero}")
 	public ResponseEntity<List<Conta>> getByNumero(@PathVariable Integer numero) {
 		return ResponseEntity.ok(contaRepository.findAllByDescricaoContainingIgnoreCase(numero));
@@ -48,7 +48,7 @@ public class ContaController {
 	public ResponseEntity<List<Conta>> getByAgencia(@PathVariable Integer agencia) {
 		return ResponseEntity.ok(contaRepository.findAllByDescricaoContainingIgnoreCase(agencia));
 	}
-	
+	*/
 	@GetMapping("/tipo/{tipo}")
 	public ResponseEntity<Conta> getById(@PathVariable Integer tipo){
 		return contaRepository.findById(tipo).map(resposta -> ResponseEntity.ok(resposta))

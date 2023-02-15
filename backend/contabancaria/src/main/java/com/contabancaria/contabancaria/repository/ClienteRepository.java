@@ -11,7 +11,7 @@ import com.contabancaria.contabancaria.model.Cliente;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 
-	public Optional<Cliente> findByCliente(String cliente);
+	public Optional<Cliente> findByCpf(String cpf);
 
-	public List<Cliente> findAllByNomeContainingIgnoreCase(String string);
+	public List<Cliente> findAllByNomeContainingIgnoreCase(String nome);
 }

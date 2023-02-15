@@ -12,13 +12,13 @@ public class UserDetailsImpl implements UserDetails{
 
 private static final long serialVersionUID =1L;
 	
-	private String userName;
+	private String userLogin;
 	private String password;
 	
 	private List<GrantedAuthority> authorities;
 	
 	public UserDetailsImpl (Cliente user){
-		this.userName = user.getCpf(); /* Utilizando CPF como login */
+		this.userLogin = user.getCpf(); /* Utilizando CPF como login */
 		this.password = user.getSenha();
 	}
 	
@@ -39,7 +39,7 @@ private static final long serialVersionUID =1L;
 	@Override
 	public String getUsername() {
 		
-		return userName;
+		return userLogin;
 	}
 
 	@Override

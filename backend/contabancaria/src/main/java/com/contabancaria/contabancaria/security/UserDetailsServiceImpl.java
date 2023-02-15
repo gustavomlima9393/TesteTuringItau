@@ -20,9 +20,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	private ClienteRepository clienteRepository;
 
 	@Override
-	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String cpf) throws UsernameNotFoundException {
 
-		Optional<Cliente> cliente = clienteRepository.findByCliente(userName);
+		Optional<Cliente> cliente = clienteRepository.findByCpf(cpf);
 
 		if (cliente.isPresent())
 			return new UserDetailsImpl(cliente.get());

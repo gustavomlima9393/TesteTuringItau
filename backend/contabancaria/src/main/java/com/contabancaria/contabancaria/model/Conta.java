@@ -6,29 +6,25 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "tb_conta")
 public class Conta {
 
+	public Conta() {};
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotBlank(message = "Insira o número de sua Conta") 
-    @Size(min = 5, max = 100, message = "O Atributo Conta deve conter no mínimo 4 números e 1 dígito")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
 	private Integer numero;
 
-	@NotBlank(message = "Insira o número de sua Agência") 
-    @Size(min = 5, max = 100, message = "O Atributo Agência deve conter no mínimo 4 números e 1 dígito")
 	private Integer agencia;
 	
-	@NotBlank(message = "Insira o tipo de sua Conta")
 	private String tipo;
 
-	@NotBlank(message = "O seu saldo atual é:")
 	private Float saldo;
-
+	
 	@ManyToOne
 	private Cliente cliente;
 

@@ -1,5 +1,6 @@
 package com.contabancaria.contabancaria.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,7 +17,10 @@ import com.contabancaria.contabancaria.service.ClienteService;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 
 public class ClienteController {
-private ClienteService clienteService;
+
+	@Autowired
+	private ClienteService clienteService;
+
 	@PostMapping("/cadastrar")
     public ResponseEntity<Cliente> Post(@RequestBody Cliente cliente){
         return ResponseEntity.status(HttpStatus.CREATED)

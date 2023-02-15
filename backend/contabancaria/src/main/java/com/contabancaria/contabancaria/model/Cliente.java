@@ -6,8 +6,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "tb_cliente")
@@ -16,15 +14,11 @@ public class Cliente {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-	
-	@NotNull(message = "O Atributo Nome é Obrigatório!")
+
 	private String nome;
-	
-	@NotNull(message = "O Atributo CPF é Obrigatório!")
+
 	private String cpf;
-	
-	@NotNull(message = "O Atributo Senha é Obrigatório!")
-	@Size(min = 8, max = 8, message = "A Senha deve ter 8 caracteres")
+
 	private String senha;
 	
 	public Long getId() {
@@ -53,4 +47,8 @@ public class Cliente {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}	
+
+	public String toString() { 
+    return "Name: '" + this.nome + "', cpf: '" + this.cpf + "', senha: '" + this.senha + "'";
+} 
 }
