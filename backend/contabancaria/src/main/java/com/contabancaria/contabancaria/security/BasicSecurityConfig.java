@@ -36,7 +36,7 @@ public class BasicSecurityConfig {
             .and().csrf().disable()
             .cors();
 
-        http
+	        http
             .authorizeHttpRequests((auth) -> auth            		
                 .requestMatchers(new AntPathRequestMatcher("/h2-console/**")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/clientes/cadastrar")).permitAll()
