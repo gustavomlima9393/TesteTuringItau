@@ -41,10 +41,13 @@ public class BasicSecurityConfig {
                 .requestMatchers(new AntPathRequestMatcher("/h2-console/**")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/clientes/cadastrar")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/contas/cadastrar")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/contas/buscar")).permitAll() //remover
+                .requestMatchers(new AntPathRequestMatcher("/transferencias/transferir")).permitAll() //remover
                 .requestMatchers(HttpMethod.OPTIONS).permitAll()
                 .anyRequest().authenticated())
             .httpBasic();
-
+	        
+	        http.headers().frameOptions().disable();
         return http.build();
 	    }
 

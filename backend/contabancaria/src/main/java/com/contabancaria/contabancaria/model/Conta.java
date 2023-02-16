@@ -4,11 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_conta")
+@Table(name = "contas")
 public class Conta {
 
 	public Conta() {};
@@ -25,9 +24,6 @@ public class Conta {
 
 	private Float saldo;
 	
-	@ManyToOne
-	private Cliente cliente;
-
 	public Conta(Integer numero, Integer agencia, String tipo, Float saldo) {
 		this.numero = numero;
 		this.agencia = agencia;
@@ -65,14 +61,6 @@ public class Conta {
 
 	public void setSaldo(Float saldo) {
 		this.saldo = saldo;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
 	}
 
 }

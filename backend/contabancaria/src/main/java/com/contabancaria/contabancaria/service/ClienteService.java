@@ -7,11 +7,15 @@ import org.springframework.stereotype.Service;
 import com.contabancaria.contabancaria.model.Cliente;
 import com.contabancaria.contabancaria.repository.ClienteRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class ClienteService {
 	
 	@Autowired
 	private ClienteRepository clienteRepository; 
+	
+	@Transactional
 	public Cliente CadastrarCliente (Cliente cliente) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
