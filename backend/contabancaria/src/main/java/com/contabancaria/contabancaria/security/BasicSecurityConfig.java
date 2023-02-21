@@ -43,6 +43,7 @@ public class BasicSecurityConfig {
                 .requestMatchers(new AntPathRequestMatcher("/contas/cadastrar")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/contas/buscar")).permitAll() //remover
                 .requestMatchers(new AntPathRequestMatcher("/transferencias/transferir")).permitAll() //remover
+                .requestMatchers(new AntPathRequestMatcher("/clientes/logar")).permitAll()
                 .requestMatchers(HttpMethod.OPTIONS).permitAll()
                 .anyRequest().authenticated())
             .httpBasic();
