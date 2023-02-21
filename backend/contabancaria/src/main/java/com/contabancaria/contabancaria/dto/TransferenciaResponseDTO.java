@@ -5,7 +5,7 @@ public class TransferenciaResponseDTO {
 	private String mensagem;
 	private String dataHoraTransacao ;
 	private Float saldoEmissor;
-	private Float saldoReceptor ;
+	private Float saldoReceptor;
 	
 	public TransferenciaResponseDTO(String mensagem, String dataHoraTransacao, Float saldoEmissor,
 			Float saldoReceptor) {
