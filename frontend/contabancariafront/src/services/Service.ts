@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: "http://localhost:3000/"
+    baseURL: "http://localhost:8080/h2-console/login.do?jsessionid=e16d1662ad2fdf2804fea85a12d6336c"
 })
 
 export const cadastroUsuario = async (url: any, dados: any, setDado: any) => {

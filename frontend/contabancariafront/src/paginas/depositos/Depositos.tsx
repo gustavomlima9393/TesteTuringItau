@@ -31,6 +31,11 @@ function Depositos() {
         })
     }
 
+    async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+        e.preventDefault();
+
+        console.log('Conta:' + Conta);
+    }
     return (
         <Grid container direction="row" justifyContent="center" alignItems="center" className='caixaLogin'>
             <Grid alignItems="center" xs={6} className="containerLogin">
@@ -67,21 +72,11 @@ function Depositos() {
                             fullWidth
                         />
                         <TextField
-                            value={valor} onChange={(e: ChangeEvent<HTMLInputElement>) => valorHandle(e)}
+                            
                             id="valor"
                             label="Valor do depósito"
                             variant="outlined"
                             name="valor"
-                            margin="normal"
-                            className="cor-interna"
-                            fullWidth
-                        />
-                        <TextField
-
-                            id="saldo"
-                            label="Saldo"
-                            variant="outlined"
-                            name="saldo"
                             margin="normal"
                             className="cor-interna"
                             fullWidth
@@ -96,10 +91,8 @@ function Depositos() {
                     </form>
                 </Box>
             </Grid>
-            <Grid xs={6}>
-
-            </Grid>
         </Grid>
     );
 }
+
 export default Depositos;
