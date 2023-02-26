@@ -15,18 +15,19 @@ function Depositos() {
         (state) => state.tokens
     );
 
-    const [Conta, setConta] = useState<Conta>(
+    const [conta, setConta] = useState<Conta>(
         {
             id: 0,
             numero: 0,
             agencia: 0,
+            tipo: "",
             saldo: 0
         })
 
 
     function updatedModel(e: ChangeEvent<HTMLInputElement>) {
         setConta({
-            ...Conta,
+            ...conta,
             [e.target.name]: e.target.value
         })
     }
@@ -34,7 +35,7 @@ function Depositos() {
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
 
-        console.log('Conta:' + Conta);
+        console.log('Conta:' + conta);
     }
     return (
         <Grid container direction="row" justifyContent="center" alignItems="center" className='caixaLogin'>
@@ -52,7 +53,7 @@ function Depositos() {
                             Faça seu depósito
                         </Typography>
                         <TextField
-                            value={Conta.numero} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                            value={conta.numero} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id="numero"
                             label="Número da conta"
                             variant="outlined"
@@ -62,7 +63,7 @@ function Depositos() {
                             fullWidth
                         />
                         <TextField
-                            value={Conta.agencia} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                            value={conta.agencia} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id="agencia"
                             label="Agência"
                             variant="outlined"
@@ -72,7 +73,7 @@ function Depositos() {
                             fullWidth
                         />
                         <TextField
-                            
+                            value={conta.saldo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id="valor"
                             label="Valor do depósito"
                             variant="outlined"

@@ -1,6 +1,6 @@
 interface UserLogin {
     id: number;
-    usuario: string;
+    cpf: string;
     senha: string;
     token: string;
 }

@@ -6,7 +6,7 @@ import { login } from "../../services/Service";
 import UserLogin from "../../models/UserLogin";
 import "./Login.css";
 import { useDispatch } from "react-redux";
-import { addId, addToken } from "../../store/tokens/actions";
+import { addCPF, addId, addToken } from "../../store/tokens/actions";
 import { toast } from "react-toastify";
 
 function Login() {
@@ -17,7 +17,7 @@ function Login() {
   const [userLogin, setUserLogin] = useState<UserLogin>(
     {
       id: 0,
-      usuario: "",
+      cpf: "",
       senha: "",
       token: ""
     }
@@ -26,7 +26,7 @@ function Login() {
   const [respUserLogin, setRespUserLogin] = useState<UserLogin>(
     {
       id: 0,
-      usuario: "",
+      cpf: "",
       senha: "",
       token: ""
     }
@@ -41,7 +41,7 @@ function Login() {
 
   useEffect(() => {
     if (
-      userLogin.usuario !== '' &&
+      userLogin.cpf !== '' &&
       userLogin.senha !== '' &&
       userLogin.senha.length >= 8
     ) {
@@ -53,8 +53,10 @@ function Login() {
 
   async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
+    console.log(userLogin)
     try {
-      await login ("/usuarios/logar", userLogin, setRespUserLogin);
+      await login ("/clientes/logar", userLogin, setRespUserLogin);
+      console.log(respUserLogin)
       toast.success("Usuario logado com sucesso", {
         position: "top-right",
         autoClose: 2000,
@@ -91,6 +93,7 @@ function Login() {
     if (respUserLogin.token !== '') {
       dispatch(addToken(respUserLogin.token));
       dispatch(addId(respUserLogin.id.toString()));
+      dispatch(addCPF(respUserLogin.cpf));
       navigate('/home');
     }
   }, [respUserLogin.token]);
@@ -111,11 +114,11 @@ function Login() {
               Entrar
             </Typography>
             <TextField
-              value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-              id="usuario"
+              value={userLogin.cpf} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+              id="cpf"
               label="Usuário(CPF)"
               variant="outlined"
-              name="usuario"
+              name="cpf"
               margin="normal"
               className="cor-interna"
               fullWidth
@@ -143,7 +146,7 @@ function Login() {
                 Não tem uma conta?
               </Typography>
             </Box>
-            <Link to="/cadastrocliente">
+            <Link to="/cadastrousuario">
               <Typography
                 variant="subtitle1"
                 gutterBottom

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: "http://localhost:8080/h2-console/login.do?jsessionid=e16d1662ad2fdf2804fea85a12d6336c"
+    baseURL: "http://localhost:8080/"
 })
 
 export const cadastroUsuario = async (url: any, dados: any, setDado: any) => {
@@ -9,9 +9,9 @@ export const cadastroUsuario = async (url: any, dados: any, setDado: any) => {
     setDado(resposta.data)
 }
 
-export const login = async (url: any, dados: any, setDado: any) => {
+export const login = async (url: any, dados: any, setDados: any) => {
     const resposta = await api.post(url, dados)
-    setDado(resposta.data)
+    setDados(resposta.data)
 }
 
 export const buscaCpf = async (url: any, setDado: any, header: any) => {

@@ -20,7 +20,7 @@ function Navbar() {
       <AppBar position="static">
         <Toolbar variant="dense" className="NavBar">
           <Box className="cursor">
-            <Typography variant="h5" color="inherit" className="links">
+            <Typography variant="h5" color="inherit">
               Teste Turing
             </Typography>
           </Box>
@@ -47,11 +47,13 @@ function Navbar() {
                   </Typography>
                 </Box>
               </Link>
+              <Link to="/login" className="text-decorator-none">
               <Box mx={1} className="cursor">
                   <Typography variant="h6" color="inherit" className="links">
                     Logout
                   </Typography>
                 </Box>
+                </Link>
             </Box>
           </Grid>
         </Toolbar>

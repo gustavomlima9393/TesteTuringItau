@@ -7,6 +7,7 @@ import { Box } from '@mui/material';
 import { Link } from "react-router-dom";
 import "./CadastroUsuario.css";
 import { toast } from "react-toastify";
+import Conta from "../../models/Conta";
 
 function CadastroUsuario() {
 
@@ -15,18 +16,31 @@ function CadastroUsuario() {
     const [user, setUser] = useState<User>(
         {
             id: 0,
-            nome: '',
-            usuario: '',
-            senha: '',
+            nome: "",
+            cpf: "",
+            senha: "",
+            contas: []
         })
 
     const [userResult, setUserResult] = useState<User>(
         {
             id: 0,
-            nome: '',
-            usuario: '',
-            senha: '',
+            nome: "",
+            cpf: "",
+            senha: "",
+            contas: []
         })
+
+    const [conta, setConta] = useState<Conta[]>([])
+    
+    // const [contaResult, setContaResult] = useState<Conta>(
+    //     {
+    //         id: 0,
+    //         numero: 0,
+    //         agencia: 0,
+    //         tipo: "conta corrente",
+    //         saldo: 0,
+    //     })
 
     useEffect(() => {
         if (userResult.id != 0) {
@@ -39,19 +53,30 @@ function CadastroUsuario() {
         setConfirmarSenha(e.target.value)
     }
 
-
-    function updatedModel(e: ChangeEvent<HTMLInputElement>) {
-
+    function updateUser(e: ChangeEvent<HTMLInputElement>) {
         setUser({
             ...user,
             [e.target.name]: e.target.value
         })
+    }
 
+    function updateConta(e: ChangeEvent<HTMLInputElement>) {
+        setConta({
+            ...conta,
+            [e.target.name]: e.target.value
+        })
+
+        setUser({
+            ...user,
+            contas: conta
+        })
     }
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
+        
+        console.log(user)
         if (confirmarSenha == user.senha) {
-            cadastroUsuario(`usuarios/cadastrar`, user, setUserResult)
+            cadastroUsuario(`clientes/cadastrar`, user, setUserResult)
             toast.success("Usuario cadastrado com sucesso", {
                 position: "top-right",
                 autoClose: 2000,
@@ -91,7 +116,7 @@ function CadastroUsuario() {
                         >
                             Cadastrar
                         </Typography>
-                        <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                        <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updateUser(e)}
                             id="nome"
                             label="Nome Completo"
                             variant="outlined"
@@ -100,16 +125,16 @@ function CadastroUsuario() {
                             className="cor-interna1"
                             fullWidth
                         />
-                        <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                            id="usuario"
+                        <TextField value={user.cpf} onChange={(e: ChangeEvent<HTMLInputElement>) => updateUser(e)}
+                            id="cpf"
                             label="Usuário(CPF)"
                             variant="outlined"
-                            name="usuario"
+                            name="cpf"
                             margin="normal"
                             className="cor-interna1"
                             fullWidth
                         />
-                        <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                        <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updateUser(e)}
                             id="senha"
                             label="Senha"
                             variant="outlined"
@@ -126,6 +151,24 @@ function CadastroUsuario() {
                             name="confirmarSenha"
                             margin="normal"
                             type="password"
+                            className="cor-interna1"
+                            fullWidth
+                        />
+                        <TextField value={conta[0].numero} onChange={(e: ChangeEvent<HTMLInputElement>) => updateConta(e)}
+                            id="numero"
+                            label="Número da conta"
+                            variant="outlined"
+                            name="numero"
+                            margin="normal"
+                            className="cor-interna1"
+                            fullWidth
+                        />
+                        <TextField value={conta[0].agencia} onChange={(e: ChangeEvent<HTMLInputElement>) => updateConta(e)}
+                            id="agencia"
+                            label="Número da agência"
+                            variant="outlined"
+                            name="agencia"
+                            margin="normal"
                             className="cor-interna1"
                             fullWidth
                         />
