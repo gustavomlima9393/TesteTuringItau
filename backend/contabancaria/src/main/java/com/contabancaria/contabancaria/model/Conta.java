@@ -19,15 +19,12 @@ public class Conta {
 	private Integer numero;
 
 	private Integer agencia;
-	
-	private String tipo;
 
 	private Float saldo;
 	
-	public Conta(Integer numero, Integer agencia, String tipo, Float saldo) {
+	public Conta(Integer numero, Integer agencia, Float saldo) {
 		this.numero = numero;
 		this.agencia = agencia;
-		this.tipo = tipo;
 		this.saldo = saldo;
 	}
 
@@ -45,14 +42,6 @@ public class Conta {
 
 	public void setAgencia(Integer agencia) {
 		this.agencia = agencia;
-	}
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
 	}
 
 	public float getSaldo() {
