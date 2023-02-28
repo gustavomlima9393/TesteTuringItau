@@ -24,7 +24,5 @@ public class DepositoRequestDTO {
 	public void setAgencia(Integer agencia) {
 		this.agencia = agencia;
 	}
-	
-	
-	
+		
 }

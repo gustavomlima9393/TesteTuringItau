@@ -57,7 +57,8 @@ public class ClienteService {
 				
 				clienteLogin.get().setToken(authHeader);
 				clienteLogin.get().setNome(cliente.get().getNome());
-				
+				clienteLogin.get().setId(cliente.get().getId());
+
 				return clienteLogin;
 			}
 		}

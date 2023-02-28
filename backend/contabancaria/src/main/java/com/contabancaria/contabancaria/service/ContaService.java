@@ -3,11 +3,11 @@ package com.contabancaria.contabancaria.service;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.contabancaria.contabancaria.dto.ContaBuscaRequestDTO;
 import com.contabancaria.contabancaria.dto.DepositoRequestDTO;
 import com.contabancaria.contabancaria.dto.DepositoResponseDTO;
 import com.contabancaria.contabancaria.model.Conta;
@@ -19,8 +19,17 @@ public class ContaService {
 	@Autowired
 	private ContaRepository contaRepository; 
 
-	public Conta buscarContaPorAgenciaConta (ContaBuscaRequestDTO dto) {
-		return contaRepository.findByAgenciaAndNumero(dto.getAgencia(), dto.getNumero());
+	public Conta buscarContaPorAgenciaNumero (Integer agencia, Integer numero) {
+		Conta contaDb = contaRepository.findByAgenciaAndNumero(agencia, numero);
+		return contaDb;
+	}
+	
+	public Conta buscarContaPorId (Long id) {
+		 Optional<Conta> contaDb = contaRepository.findById(id);
+		 if(contaDb.isPresent()) {
+			 return contaDb.get();
+		 }
+		 return new Conta();
 	}
 	
 	public DepositoResponseDTO realizarDeposito (DepositoRequestDTO dto) {
