@@ -31,16 +31,15 @@ function CadastroUsuario() {
             contas: []
         })
 
-    const [conta, setConta] = useState<Conta[]>([])
-    
-    // const [contaResult, setContaResult] = useState<Conta>(
-    //     {
-    //         id: 0,
-    //         numero: 0,
-    //         agencia: 0,
-    //         tipo: "conta corrente",
-    //         saldo: 0,
-    //     })
+    const [conta, setConta] = useState<Conta>(
+        {
+            id: 0,
+            numero: 0,
+            agencia: 0,
+            tipo: "conta corrente",
+            saldo: 0,
+        }
+    )
 
     useEffect(() => {
         if (userResult.id != 0) {
@@ -68,7 +67,7 @@ function CadastroUsuario() {
 
         setUser({
             ...user,
-            contas: conta
+            contas: [conta]
         })
     }
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
@@ -154,7 +153,7 @@ function CadastroUsuario() {
                             className="cor-interna1"
                             fullWidth
                         />
-                        <TextField value={conta[0].numero} onChange={(e: ChangeEvent<HTMLInputElement>) => updateConta(e)}
+                        <TextField value={conta.numero} onChange={(e: ChangeEvent<HTMLInputElement>) => updateConta(e)}
                             id="numero"
                             label="Número da conta"
                             variant="outlined"
@@ -163,7 +162,7 @@ function CadastroUsuario() {
                             className="cor-interna1"
                             fullWidth
                         />
-                        <TextField value={conta[0].agencia} onChange={(e: ChangeEvent<HTMLInputElement>) => updateConta(e)}
+                        <TextField value={conta.agencia} onChange={(e: ChangeEvent<HTMLInputElement>) => updateConta(e)}
                             id="agencia"
                             label="Número da agência"
                             variant="outlined"

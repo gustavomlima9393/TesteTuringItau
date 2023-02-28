@@ -1,8 +1,7 @@
 import React, { useState, ChangeEvent, useEffect } from "react";
 import { Grid, Box, TextField } from '@material-ui/core';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
-import { Button } from '@mui/material';
 import './Home.css';
 import { TokenState } from "../../store/tokens/tokensReducer";
 import { useSelector } from "react-redux";
@@ -100,6 +99,7 @@ useEffect(() => {
                             margin="normal"
                             className="cor-interna"
                             fullWidth
+                            InputLabelProps={{ shrink: true }} //impede que o Label cubra a informação da caixa
                         />
                         <TextField
                             value={user.cpf} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
@@ -110,6 +110,7 @@ useEffect(() => {
                             margin="normal"
                             className="cor-interna"
                             fullWidth
+                            InputLabelProps={{ shrink: true }}
                         />
                         <TextField
                             value={user.contas[0]?.numero} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
@@ -120,6 +121,7 @@ useEffect(() => {
                             margin="normal"
                             className="cor-interna"
                             fullWidth
+                            InputLabelProps={{ shrink: true }} 
                         />
                         <TextField
                             value={user.contas[0]?.agencia} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
@@ -130,6 +132,7 @@ useEffect(() => {
                             margin="normal"
                             className="cor-interna"
                             fullWidth
+                            InputLabelProps={{ shrink: true }}
                         />
                         <TextField
                             value={user.contas[0]?.saldo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
@@ -140,6 +143,7 @@ useEffect(() => {
                             margin="normal"
                             className="cor-interna"
                             fullWidth
+                            InputLabelProps={{ shrink: true }}
                         />
                     </>
                 </Box>
