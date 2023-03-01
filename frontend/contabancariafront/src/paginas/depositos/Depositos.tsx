@@ -2,7 +2,7 @@ import React, { useState, ChangeEvent, useEffect } from "react";
 import { Grid, Box, TextField } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
-import { Button } from '@mui/material';
+import { Button, FormControl, InputAdornment, InputLabel, OutlinedInput } from '@mui/material';
 import './Depositos.css';
 import Conta from './../../models/Conta';
 import { TokenState } from "../../store/tokens/tokensReducer";
@@ -26,7 +26,6 @@ function Depositos() {
             id: 0,
             numero: 0,
             agencia: 0,
-            tipo: "",
             saldo: 0
         })
 
@@ -76,8 +75,8 @@ function Depositos() {
         })
     }
     return (
-        <Grid container direction="row" justifyContent="center" alignItems="center" className='caixaLogin'>
-            <Grid alignItems="center" xs={6} className="containerLogin">
+        <Grid container direction="row" justifyContent="center" alignItems="center" className='caixaDepositos'>
+            <Grid alignItems="center" xs={6} className="containerDepositos">
                 <Box paddingX={20}>
                     <form onSubmit={onSubmit}>
                         <Typography
@@ -112,17 +111,17 @@ function Depositos() {
                             fullWidth
                             InputLabelProps={{ shrink: true }}
                         />
-                        <TextField
+                        <FormControl fullWidth>
+                        <InputLabel htmlFor="outlined-adornment-amount">Valor do depósito</InputLabel>
+                        <OutlinedInput
                             value={deposito.valor} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id="valor"
+                            startAdornment={<InputAdornment position="start">R$</InputAdornment>}
                             label="Valor do depósito"
-                            variant="outlined"
                             name="valor"
-                            margin="normal"
                             className="cor-interna"
-                            fullWidth
-                            InputLabelProps={{ shrink: true }}
                         />
+                        </FormControl>
                         <Box marginTop={2} textAlign='center'>
                                 <Button type='submit' variant='contained' color='primary'>
                                     Depositar

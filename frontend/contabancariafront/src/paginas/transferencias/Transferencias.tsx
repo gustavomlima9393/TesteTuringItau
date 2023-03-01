@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState, useEffect } from "react";
 import { Grid, Box, TextField } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
-import { Button } from '@mui/material';
+import { Button, FormControl, InputAdornment, InputLabel, OutlinedInput } from '@mui/material';
 import './Transferencias.css';
 import { useSelector } from "react-redux";
 import { TokenState } from "../../store/tokens/tokensReducer";
@@ -36,7 +36,6 @@ function Transferencias() {
             id: 0,
             numero: 0,
             agencia: 0,
-            tipo: "",
             saldo: 0
         })
 
@@ -46,7 +45,6 @@ function Transferencias() {
         setContaOrigem({
                 numero: user.contas[0]?.numero,
                 agencia: user.contas[0]?.agencia,
-                tipo: user.contas[0]?.tipo,
                 saldo: user.contas[0]?.saldo,
                 id: user.contas[0]?.id
             })
@@ -119,8 +117,8 @@ function Transferencias() {
 
     
     return (
-        <Grid container direction="row" justifyContent="center" alignItems="center" className='caixaLogin'>
-            <Grid alignItems="center" xs={6} className="containerLogin">
+        <Grid container direction="row" justifyContent="center" alignItems="center" className='caixaTransferencias'>
+            <Grid alignItems="center" xs={6} className="containerTransferencias">
                 <Box paddingX={20}>
                     <form onSubmit={onSubmit}>
                         <Typography
@@ -155,17 +153,17 @@ function Transferencias() {
                             fullWidth
                             InputLabelProps={{ shrink: true }}
                         />
-                        <TextField
+                        <FormControl fullWidth>
+                        <InputLabel htmlFor="outlined-adornment-amount">Valor da transferência</InputLabel>
+                        <OutlinedInput
                             value={transferencia.valorTransferencia} onChange={(e: ChangeEvent<HTMLInputElement>) => updateTransfer(e)}
                             id="valorTransferencia"
+                            startAdornment={<InputAdornment position="start">R$</InputAdornment>}
                             label="Valor da transferência"
-                            variant="outlined"
                             name="valorTransferencia"
-                            margin="normal"
                             className="cor-interna"
-                            fullWidth
-                            InputLabelProps={{ shrink: true }}
                         />
+                        </FormControl>
                         <TextField
                             value={transferencia.tipoTransferencia} onChange={(e: ChangeEvent<HTMLInputElement>) => updateTransfer(e)}
                             id="tipoTransferencia"

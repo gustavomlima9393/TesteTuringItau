@@ -116,7 +116,7 @@ function Login() {
             <TextField
               value={userLogin.cpf} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               id="cpf"
-              label="Usuário(CPF)"
+              label="Usuário (CPF)"
               variant="outlined"
               name="cpf"
               margin="normal"

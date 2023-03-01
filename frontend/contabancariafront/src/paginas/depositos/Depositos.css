@@ -23,13 +23,13 @@
     background-color: #dee0f3 !important;
 }
 
-.containerLogin{
-    background-color:  #c6caeb;
+.containerDepositos{
+    background-color:  #e9e5f8;
     border-radius: 8px;
     padding: 25px 0px;
 }
 
-.caixaLogin {
+.caixaDepositos {
     background-color: orange;
     background-repeat: no-repeat;
     width: 100vh;

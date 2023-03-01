@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent, useEffect } from "react";
-import { Grid, Box, TextField } from '@material-ui/core';
+import { Grid, Box, TextField, FormControl, InputLabel, OutlinedInput, InputAdornment } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
 import './Home.css';
@@ -45,7 +45,6 @@ function Home() {
             id: 0,
             numero: 0,
             agencia: 0,
-            tipo: "",
             saldo: 0,
          })
     
@@ -54,7 +53,6 @@ function Home() {
             id: 0,
             numero: 0,
             agencia: 0,
-            tipo: "",
             saldo: 0,
         })
         
@@ -134,17 +132,17 @@ useEffect(() => {
                             fullWidth
                             InputLabelProps={{ shrink: true }}
                         />
-                        <TextField
+                        <FormControl fullWidth variant="outlined">
+                        <InputLabel htmlFor="outlined-adornment-amount">Saldo</InputLabel>
+                        <OutlinedInput
                             value={user.contas[0]?.saldo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id="saldo"
+                            startAdornment={<InputAdornment position="start">R$</InputAdornment>}
                             label="Saldo"
-                            variant="outlined"
                             name="saldo"
-                            margin="normal"
                             className="cor-interna"
-                            fullWidth
-                            InputLabelProps={{ shrink: true }}
                         />
+                        </FormControl>
                     </>
                 </Box>
             </Grid>

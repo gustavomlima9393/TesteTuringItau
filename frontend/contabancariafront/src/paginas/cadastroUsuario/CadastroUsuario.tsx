@@ -36,7 +36,6 @@ function CadastroUsuario() {
             id: 0,
             numero: 0,
             agencia: 0,
-            tipo: "conta corrente",
             saldo: 0,
         }
     )
@@ -126,7 +125,7 @@ function CadastroUsuario() {
                         />
                         <TextField value={user.cpf} onChange={(e: ChangeEvent<HTMLInputElement>) => updateUser(e)}
                             id="cpf"
-                            label="Usuário(CPF)"
+                            label="Usuário (CPF)"
                             variant="outlined"
                             name="cpf"
                             margin="normal"
@@ -134,6 +133,7 @@ function CadastroUsuario() {
                             fullWidth
                         />
                         <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updateUser(e)}
+                            helperText="Ex: @Tt12345"
                             id="senha"
                             label="Senha"
                             variant="outlined"
@@ -154,6 +154,7 @@ function CadastroUsuario() {
                             fullWidth
                         />
                         <TextField value={conta.numero} onChange={(e: ChangeEvent<HTMLInputElement>) => updateConta(e)}
+                            helperText="Ex: 1990"
                             id="numero"
                             label="Número da conta"
                             variant="outlined"
@@ -163,6 +164,7 @@ function CadastroUsuario() {
                             fullWidth
                         />
                         <TextField value={conta.agencia} onChange={(e: ChangeEvent<HTMLInputElement>) => updateConta(e)}
+                            helperText="Ex: 3554"
                             id="agencia"
                             label="Número da agência"
                             variant="outlined"

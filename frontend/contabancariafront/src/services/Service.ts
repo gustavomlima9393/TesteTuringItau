@@ -41,7 +41,7 @@ export const post = async (url: any, dados: any, setDado: any, header: any) => {
             progress: undefined,
         });
     } else {
-        toast.success(`${resposta.data.mensagem}, Saldo do emissor: ${resposta.data.saldoEmissor}, saldo do receptor: ${resposta.data.saldoReceptor}`, {
+        toast.success(`${resposta.data.mensagem}, Saldo do emissor: ${resposta.data.saldoEmissor}, Saldo do receptor: ${resposta.data.saldoReceptor}`, {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
