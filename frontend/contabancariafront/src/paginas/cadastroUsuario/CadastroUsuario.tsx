@@ -34,9 +34,9 @@ function CadastroUsuario() {
     const [conta, setConta] = useState<Conta>(
         {
             id: 0,
-            numero: 0,
-            agencia: 0,
-            saldo: 0,
+            numero: null,
+            agencia: null,
+            saldo: 0
         }
     )
 
@@ -58,7 +58,7 @@ function CadastroUsuario() {
         })
     }
 
-    function updateConta(e: ChangeEvent<HTMLInputElement>) {
+    function updateConta(e: any) {
         setConta({
             ...conta,
             [e.target.name]: e.target.value
@@ -101,7 +101,7 @@ function CadastroUsuario() {
 
     return (
         <Grid container direction="row" justifyContent="center" alignItems="center" className='caixaUsuario'>
-        <Grid alignItems="center" xs={6}>
+        <Grid alignItems="center" item xs={6}>
           <Box paddingX={20} className="containerUsuario" >
             <form onSubmit={onSubmit}>
               <Typography
@@ -120,7 +120,7 @@ function CadastroUsuario() {
                             variant="outlined"
                             name="nome"
                             margin="normal"
-                            className="cor-interna1"
+                            className="cor-interna"
                             fullWidth
                         />
                         <TextField value={user.cpf} onChange={(e: ChangeEvent<HTMLInputElement>) => updateUser(e)}
@@ -129,7 +129,7 @@ function CadastroUsuario() {
                             variant="outlined"
                             name="cpf"
                             margin="normal"
-                            className="cor-interna1"
+                            className="cor-interna"
                             fullWidth
                         />
                         <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updateUser(e)}
@@ -140,7 +140,7 @@ function CadastroUsuario() {
                             name="senha"
                             margin="normal"
                             type="password"
-                            className="cor-interna1"
+                            className="cor-interna"
                             fullWidth
                         />
                         <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}
@@ -150,7 +150,7 @@ function CadastroUsuario() {
                             name="confirmarSenha"
                             margin="normal"
                             type="password"
-                            className="cor-interna1"
+                            className="cor-interna"
                             fullWidth
                         />
                         <TextField value={conta.numero} onChange={(e: ChangeEvent<HTMLInputElement>) => updateConta(e)}
@@ -160,7 +160,7 @@ function CadastroUsuario() {
                             variant="outlined"
                             name="numero"
                             margin="normal"
-                            className="cor-interna1"
+                            className="cor-interna"
                             fullWidth
                         />
                         <TextField value={conta.agencia} onChange={(e: ChangeEvent<HTMLInputElement>) => updateConta(e)}
@@ -170,7 +170,7 @@ function CadastroUsuario() {
                             variant="outlined"
                             name="agencia"
                             margin="normal"
-                            className="cor-interna1"
+                            className="cor-interna"
                             fullWidth
                         />
                         <Box marginTop={2} textAlign="center">
@@ -179,7 +179,7 @@ function CadastroUsuario() {
                                     Cancelar
                                 </Button>
                             </Link>
-                            <Button type="submit" variant="contained" color="primary">
+                            <Button onClick={(e => updateConta(e))} type="submit" variant="contained" color="primary">
                                 Cadastrar
                             </Button>
                         </Box>

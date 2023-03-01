@@ -34,12 +34,12 @@ function Transferencias() {
     const [conta, setConta] = useState<Conta>(
         {
             id: 0,
-            numero: 0,
-            agencia: 0,
+            numero: null,
+            agencia: null,
             saldo: 0
         })
 
-    const [contaOrigem, setContaOrigem] = useState<Conta> ({} as Conta)
+    const [contaOrigem, setContaOrigem] = useState<Conta> ({} as Conta) //{} as Conta <-- Objeto já vem preenchido, já que não terá alterações
 
     useEffect(() => {
         setContaOrigem({
@@ -118,7 +118,7 @@ function Transferencias() {
     
     return (
         <Grid container direction="row" justifyContent="center" alignItems="center" className='caixaTransferencias'>
-            <Grid alignItems="center" xs={6} className="containerTransferencias">
+            <Grid alignItems="center" item xs={6} className="containerTransferencias">
                 <Box paddingX={20}>
                     <form onSubmit={onSubmit}>
                         <Typography

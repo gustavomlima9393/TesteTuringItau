@@ -76,7 +76,7 @@ function Depositos() {
     }
     return (
         <Grid container direction="row" justifyContent="center" alignItems="center" className='caixaDepositos'>
-            <Grid alignItems="center" xs={6} className="containerDepositos">
+            <Grid alignItems="center" item xs={6} className="containerDepositos">
                 <Box paddingX={20}>
                     <form onSubmit={onSubmit}>
                         <Typography

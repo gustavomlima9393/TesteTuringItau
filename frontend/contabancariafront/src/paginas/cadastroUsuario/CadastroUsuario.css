@@ -6,8 +6,12 @@
     margin-right: 20px !important;
 }
 
-.cor-interna1{
-    background-color: #dee0f3 !important;
+.cor-interna{
+    background-color: #ffffff !important;
+}
+
+.text-decorator-none{
+    text-decoration: none;
 }
 
 .containerUsuario{
@@ -17,7 +21,7 @@
 }
 
 .caixaUsuario {
-    background-color: orange;
+    background-color: #ff7b00e7;
     background-repeat: no-repeat;
     width: 100vh;
     min-height: 100vh;

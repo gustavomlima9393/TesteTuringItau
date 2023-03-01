@@ -75,7 +75,7 @@ useEffect(() => {
 
     return (
         <Grid container direction="row" justifyContent="center" alignItems="center" className='caixaHome'>
-            <Grid alignItems="center" xs={6} className="containerHome">
+            <Grid alignItems="center" item xs={6} className="containerHome">
                 <Box paddingX={20}>
                     <>
                         <Typography

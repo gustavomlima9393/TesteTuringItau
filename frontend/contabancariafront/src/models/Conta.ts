@@ -1,7 +1,7 @@
 interface Conta {
     id: number;
-    numero: number;
-    agencia: number;
+    numero: any;
+    agencia: any;
     saldo: number
 }
 
