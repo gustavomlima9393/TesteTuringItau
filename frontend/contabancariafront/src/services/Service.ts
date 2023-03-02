@@ -40,8 +40,19 @@ export const post = async (url: any, dados: any, setDado: any, header: any) => {
             theme: "colored",
             progress: undefined,
         });
+    } else if (resposta.data.mensagem.includes('Depósito realizado')){
+        toast.success(`${resposta.data.mensagem} Saldo atualizado: R$ ${resposta.data.saldoAtualizado},00`, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            theme: "colored",
+            progress: undefined,
+        });
     } else {
-        toast.success(`${resposta.data.mensagem}, Saldo do emissor: ${resposta.data.saldoEmissor}, Saldo do receptor: ${resposta.data.saldoReceptor}`, {
+        toast.success(`${resposta.data.mensagem}, Saldo do emissor: R$ ${resposta.data.saldoEmissor}, Saldo do receptor: R$ ${resposta.data.saldoReceptor}`, {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
