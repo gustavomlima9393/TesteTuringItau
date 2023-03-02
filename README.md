@@ -16,8 +16,9 @@ Versão: React 17 <br>
 
 ## Instruções para a execução do projeto:
 
- Rodar o comando 'mvn clean install' na pasta que se encontra o pom.xml <br>
- Executar o método main dentro da classe ContaBancariaApplication.java numa IDE de preferência (IntelliJ, Eclipse) <br>
+Para o backend: <br>
+Rodar o comando 'mvn clean install' na pasta que se encontra o pom.xml <br>
+Executar o método main dentro da classe ContaBancariaApplication.java numa IDE de preferência (IntelliJ, Eclipse) <br>
 
 Para o frontend: <br>
 ****`cd nome-do-projeto`**** (entrar na pasta do arquivo) <br>
