@@ -21,8 +21,7 @@ Rodar o comando 'mvn clean install' na pasta que se encontra o pom.xml <br>
 Executar o método main dentro da classe ContaBancariaApplication.java numa IDE de preferência (IntelliJ, Eclipse) <br>
 
 Para o frontend: <br>
-****`cd nome-do-projeto`**** (entrar na pasta do arquivo) <br>
-****`code .`**** (abrir o editor de textos Visual Studio Code) <br>
+Abrir o Visual Studio Code e importar a pasta "contabancariafront" <br>
 ****`yarn`**** (baixar as dependências instaladas) <br>
 ****`yarn start`**** (executar os scripts) <br>
 
@@ -31,7 +30,7 @@ A outra opção de execução senão yarn é o ****`npm install`**** seguido do 
 
 Obs2: Na página de Transferências, para fazer a transferência desejada é só digitar PIX, DOC OU TED conforme a necessidade e depois clicar em "Transferir" <br>
 
-Obs3: A realização de depósito é feita somente para a conta na qual se está logado, os campos já são previamente preenchidos. Já as transferências só são realizadas para contas diferentes. <br>
+Obs3: A realização de depósito é feita somente para a conta na qual se está logado, os campos já são previamente preenchidos. Já as transferências só são realizadas para contas diferentes onde deve-se inserir os dados de conta e agência nos campos. <br>
 
 ## Contas para testes:
 
